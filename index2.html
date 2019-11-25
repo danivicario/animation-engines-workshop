@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        overflow: hidden;
+      }
+      .test {
+        background: red;
+        border-radius: 10px;
+        height: 50px;
+        width: 50px;
+      }
+
+      body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: space-between;
+        height: 100vh;
+      }
+    </style>
+    <link rel="stylesheet" href="reset.css" />
+  </head>
+  <body>
+    <!-- <h1 id="logo">
+      <img src="images/logo.png" alt="" />
+    </h1> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
+    <script>
+      const randomFloat = (min, max) => Math.random() * (max - min) + min;
+      const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+      const shuffle = array => array.sort(() => Math.random() - 0.5);
+
+      Array(196)
+        .fill()
+        .forEach(x => {
+          const domEl = document.createElement("div");
+          domEl.className = "test";
+          document.body.appendChild(domEl);
+        });
+
+      document.querySelector("body").onmouseover = function(e) {
+        if (e.target.className !== "test") return;
+        gsap.from(".test", 1, {
+          scale: 0.1,
+          // y: 160,
+          yoyo: true,
+          repeat: -1,
+          ease: "power1.inOut",
+          //   delay: 1,
+          stagger: {
+            amount: 1.5,
+            grid: "auto",
+            from: "center"
+          }
+        });
+      };
+    </script>
+  </body>
+</html>

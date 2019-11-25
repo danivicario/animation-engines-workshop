@@ -6,7 +6,9 @@
     "browser": true
   },
   "globals": {
-    "THREE": true
+    "THREE": true,
+    "Victor": true,
+    "globalCompositeOperationModes": true
   },
   "rules": {
     "indent": 0,

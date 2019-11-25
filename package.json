@@ -1,7 +1,7 @@
 {
   "name": "animation-engines-workshop-webmad1019-1",
   "version": "1.0.0",
-  "description": "",
+  "description": "<img src=\"https://raw.githubusercontent.com/webmad1019-1/w1d3-advanced-selectors-positioning-full-layout/master/img/ironhack.svg?sanitize=true\" alt=\"Ironhack\" width=\"60\"/>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "eslint": "^6.1.0",
+    "eslint": "^5.16.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.5.0",
@@ -26,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/webmad1019-1/animation-engines-workshop/issues"
   },
-  "homepage": "https://github.com/webmad1019-1/animation-engines-workshop#readme"
+  "homepage": "https://github.com/webmad1019-1/animation-engines-workshop#readme",
+  "devDependencies": {}
 }
