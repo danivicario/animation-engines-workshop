@@ -1,134 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        overflow: hidden;
+        background: url("images/angrybirdsbackground.png") no-repeat;
+        background-size: 100vw 100vh;
+        background-position: center;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Document</title>
-  <style>
-    html,
-    body {
-      overflow: hidden;
-      background: url("images/angrybirdsbackground.png") no-repeat;
-      background-size: 100vw 100vh;
-      background-position: center;
-    }
+      .character {
+        display: none;
+        position: absolute;
+      }
 
-    .character {
-      display: none;
-      position: absolute;
-    }
+      .character img {
+        height: 100px;
+      }
 
-    .character img {
-      height: 200px;
-    }
+      body {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        height: 100vh;
+      }
+    </style>
+    <link rel="stylesheet" href="reset.css" />
+  </head>
 
-    body {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-content: flex-start;
-      height: 100vh;
-    }
-  </style>
-  <link rel="stylesheet" href="reset.css" />
-</head>
-
-<body>
-  <!-- <h1 id="logo">
+  <body>
+    <!-- <h1 id="logo">
       <img src="images/logo.png" alt="" />
     </h1> -->
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
-  <script>
-    const randomFloat = (min, max) => Math.random() * (max - min) + min;
-    const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-    const shuffle = array => array.sort(() => Math.random() - 0.5);
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
+    <script>
+      const randomFloat = (min, max) => Math.random() * (max - min) + min;
+      const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+      const shuffle = array => array.sort(() => Math.random() - 0.5);
 
-    let characters = Array(39)
-      .fill()
-      .map((x, idx) => idx)
+      let floorPosition = 110;
+      let totalMonsters = 40;
+      let characters = Array(totalMonsters)
+        .fill()
+        .map((x, idx) => idx);
 
-    shuffle(characters);
+      shuffle(characters);
 
-    characters
-      .forEach((characterId) => {
+      characters.forEach(characterId => {
         const domEl = document.createElement("div");
         domEl.className = "character";
-        domEl.innerHTML = `<img src='images/PNG/${characterId}.png'>`
+        domEl.innerHTML = `<img src='images/PNG/${characterId}.png'>`;
         document.body.appendChild(domEl);
       });
 
-    function generateJustOne() {
-      let character = document.querySelectorAll(".character")[randomInt(0, 39)]
+      function generateJustOne() {
+        let randomCharacter = randomInt(0, totalMonsters - 1);
+        let character = document.querySelectorAll(".character")[randomCharacter];
 
-      character.style.display = "block"
-      character.style.bottom = "160px";
-    }
+        character.style.display = "block";
+        character.style.bottom = `${floorPosition}px`;
 
-    // example 1
+        return character;
+      }
 
-    // generateJustOne()
-    // gsap.to(character, 1, {
-    //   scale: 1,
-    //   left: "20vw",
-    //   ease: "none"
-    // });
+      // example 1
+      // let character = generateJustOne();
+      // gsap.to(character, 1, {
+      //   scale: 1,
+      //   left: "+=30vw",
+      //   ease: "power1.out"
+      // });
 
-    // example 2
+      // example 2
+      // let character = generateJustOne();
+      // gsap.to(character, 1, {
+      //   scale: 1,
+      //   left: "+=500",
+      //   bottom: floorPosition + 40,
+      //   scale: 2,
+      //   ease: "power1.inOut"
+      // });
 
-    // generateJustOne()
-    // gsap.to(character, 1, {
-    //   scale: 1,
-    //   left: "20vw",
-    //   bottom: "210px",
-    //   scale: 2,
-    //   ease: "power1.inOut"
-    // });
+      // example 3
+      let character = generateJustOne();
+      let left = `${window.innerWidth / 2 - 100}px`;
 
-    // example 3
+      gsap.fromTo(
+        character,
+        {
+          left: `${left}`,
+          bottom: 1000,
+          scale: 1,
+          opacity: 0
+        },
+        {
+          left: `${left}`,
+          bottom: floorPosition,
+          opacity: 1,
+          duration: 1.5,
+          rotation: 360 * 3,
+          ease: "bounce"
+        }
+      );
 
-    // generateJustOne()
-    // gsap.from(character, {
-    //   duration: 2,
-    //   scale: 0.5,
-    //   opacity: 0,
-    //   delay: 0.5,
-    //   stagger: 0.2,
-    //   ease: "elastic",
-    //   force3D: true
-    // });
+      // example 4
 
-    // example 4
+      // document.querySelectorAll(".character").forEach((character, idx) => {
+      //   if (idx > 10) return;
 
-    document.querySelectorAll(".character").forEach((character, idx) => {
-      if (idx > 10) return;
+      //   character.style.display = "block";
+      //   character.style.left = `${180 * idx}px`;
+      //   character.style.bottom = `${floorPosition}px`;
 
-      character.style.display = "block"
-      character.style.left = `${180 * idx}px`
-      character.style.bottom = `160px`
+      //   gsap.from(character, {
+      //     scale: 0.5,
+      //     opacity: 0,
+      //     delay: 0.25 * idx
+      //   });
 
-      gsap.from(character, {
-        scale: .5,
-        opacity: 0,
-        delay: 0.25 * idx
-      });
-
-      gsap.to(character, {
-        duration: 2,
-        scale: 1,
-        opacity: 1,
-        delay: 0.25 * idx,
-        stagger: 1,
-        ease: "elastic",
-        rotation: idx === 5 ? 360 : 0
-      });
-    })
-
-
-  </script>
-</body>
-
+      //   gsap.to(character, {
+      //     duration: 2,
+      //     scale: 1,
+      //     opacity: 1,
+      //     delay: 0.25 * idx,
+      //     stagger: 1,
+      //     ease: "elastic",
+      //     rotation: idx === 5 ? 360 : 0
+      //   });
+      // });
+    </script>
+  </body>
 </html>
