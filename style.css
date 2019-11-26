@@ -1,0 +1,77 @@
+* {
+    font-family: "Calistoga", cursive;
+}
+
+html,
+body {
+    overflow: hidden;
+    background: url("images/angrybirdsbackground.png") no-repeat;
+    background-size: 100vw 100vh;
+    background-position: center;
+}
+
+.character {
+    display: none;
+    position: absolute;
+}
+
+.character img {
+    height: 100px;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    height: 100vh;
+}
+
+.sun {
+    background: url("./images/sun.png");
+    background-size: cover;
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+nav button {
+    margin: 5px;
+}
+
+button {
+    background: linear-gradient(#666, rgb(182, 180, 180));
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.speech {
+    width: 300px;
+    height: 300px;
+    background: url("./images/speech.png");
+    background-size: cover;
+    position: absolute;
+    opacity: 0;
+}
+
+.obstacle1 {
+    width: 300px;
+    height: 300px;
+    background: url("./images/obstacle1.png");
+    background-size: cover;
+    position: absolute;
+    left: 500px;
+    display: none;
+}
