@@ -21,9 +21,9 @@ function setupMonsters() {
     .fill()
     .map((_, idx) => idx);
 
-  characters.forEach(characterId => {
+  characters.forEach((characterId, idx) => {
     const domEl = document.createElement("div");
-    domEl.className = "character";
+    domEl.className = "character monster-" + idx;
     domEl.innerHTML = `<img src='images/PNG/${characterId}.png'>`;
     document.body.appendChild(domEl);
   });
@@ -37,8 +37,9 @@ function showObstacle() {
 }
 
 function generateJustOneMonster(requestedMonster) {
-  let randomCharacter = requestedMonster || randomInt(0, totalMonsters - 1);
-  let character = document.querySelectorAll(".character")[randomCharacter];
+  let chosenMonster =
+    requestedMonster === undefined ? randomInt(0, totalMonsters - 1) : requestedMonster;
+  let character = document.querySelector(`.monster-${chosenMonster}`);
 
   character.style.display = "block";
   character.style.bottom = `${floorPosition}px`;
@@ -123,7 +124,7 @@ setupMonsters();
 // );
 
 // example 5
-presentation();
+// presentation();
 
 // example 6
 // let character = generateJustOneMonster();
@@ -204,14 +205,14 @@ presentation();
 //   });
 
 // example 10
-// showObstacle();
+showObstacle();
 
-// let character = generateJustOneMonster(20);
-// let t1 = new TimelineMax();
+let character = generateJustOneMonster(0);
+let t1 = new TimelineMax();
 
-// t1.to(character, 0, { left: 400 })
-//   .to(character, 1, { left: 620 })
-//   .to(character, 1, { rotate: -40 })
-//   .to(character, 1, { bottom: 370, left: 880 })
-//   .to(character, 0.5, { bottom: floorPosition, left: 620, rotate: -320, ease: Linear.easeNone })
-//   .to(character, 0.75, { left: 200, rotate: -520 });
+t1.to(character, 0, { left: 400 })
+  .to(character, 1, { left: 620 })
+  .to(character, 1, { rotate: -40 })
+  .to(character, 1, { bottom: 370, left: 880 })
+  .to(character, 0.5, { bottom: floorPosition, left: 620, rotate: -320, ease: Linear.easeNone })
+  .to(character, 0.75, { left: 200, rotate: -520 });

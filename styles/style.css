@@ -29,7 +29,7 @@ body {
 }
 
 .sun {
-    background: url("./images/sun.png");
+    background: url("../images/sun.png");
     background-size: cover;
     height: 120px;
     width: 120px;
@@ -60,7 +60,7 @@ button {
 .speech {
     width: 300px;
     height: 300px;
-    background: url("./images/speech.png");
+    background: url("../images/speech.png");
     background-size: cover;
     position: absolute;
     opacity: 0;
@@ -69,7 +69,7 @@ button {
 .obstacle1 {
     width: 300px;
     height: 300px;
-    background: url("./images/obstacle1.png");
+    background: url("../images/obstacle1.png");
     background-size: cover;
     position: absolute;
     left: 500px;
