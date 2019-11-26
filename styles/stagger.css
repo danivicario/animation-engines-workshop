@@ -1,0 +1,19 @@
+html,
+body {
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    background: url(../images/logo.png) no-repeat;
+    background-size: auto 100vh;
+    background-position: center top;
+}
+
+div {
+    background: red;
+    opacity: 0;
+}

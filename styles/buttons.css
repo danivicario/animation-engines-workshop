@@ -1,0 +1,29 @@
+html,
+body {
+    overflow: hidden;
+}
+
+textarea,
+select,
+input,
+button {
+    outline: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+button {
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 5px;
+    background: #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    cursor: pointer;
+    margin: 10px;
+}
