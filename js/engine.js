@@ -86,11 +86,11 @@ setupMonsters();
 // example 2 - increase current position
 // let character = generateJustOneMonster();
 
-// tween = gsap.to(character, 2, {
-//   scale: 1,
-//   left: "+=70vw",
-//   ease: "Linear.none"
-// });
+tween = gsap.to(character, 2, {
+  scale: 1,
+  left: "+=70vw",
+  ease: "Linear.none"
+});
 
 // example 3 - size increase
 // let character = generateJustOneMonster();
@@ -219,32 +219,32 @@ setupMonsters();
 //   .to(character, 0.75, { left: 200, rotate: -520 });
 
 // example 11 - showcasing some monsters, shuffle them only third is clickable
-let characters = document.querySelectorAll(".character");
-characters = [...characters].splice(0, 7);
-characters = shuffle([...characters]);
+// let characters = document.querySelectorAll(".character");
+// characters = [...characters].splice(0, 7);
+// characters = shuffle([...characters]);
 
-characters.forEach((character, idx) => {
-  character.style.opacity = 0;
-  character.style.display = "block";
-  character.style.left = `${150 * idx}px`;
-  character.style.bottom = `${floorPosition}px`;
-});
+// characters.forEach((character, idx) => {
+//   character.style.opacity = 0;
+//   character.style.display = "block";
+//   character.style.left = `${150 * idx}px`;
+//   character.style.bottom = `${floorPosition}px`;
+// });
 
-tween = gsap.to(".character", {
-  duration: 1,
-  opacity: 1,
-  delay: 0.25,
-  stagger: 0.5,
-  ease: "elastic"
-});
+// tween = gsap.to(".character", {
+//   duration: 1,
+//   opacity: 1,
+//   delay: 0.25,
+//   stagger: 0.5,
+//   ease: "elastic"
+// });
 
-characters[3].onclick = function() {
-  gsap.to(this, {
-    duration: 1,
-    opacity: 1,
-    delay: 0.25,
-    stagger: 0.5,
-    ease: "elastic",
-    bottom: 300
-  });
-};
+// characters[3].onclick = function() {
+//   gsap.to(this, {
+//     duration: 1,
+//     opacity: 1,
+//     delay: 0.25,
+//     stagger: 0.5,
+//     ease: "elastic",
+//     bottom: 300
+//   });
+// };

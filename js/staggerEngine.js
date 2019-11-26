@@ -22,12 +22,12 @@ function setupBoxes() {
 setupBoxes();
 
 gsap.to("div", 1, {
-  opacity: 1,
+  opacity: 0,
   stagger: {
     amount: 1.5,
     grid: "auto",
     from: "center"
-  },
+  }
   //   borderRadius: 50,
-  backgroundColor: () => `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}, 1)`
+  // backgroundColor: () => `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}, 1)`
 });
