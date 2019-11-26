@@ -8,6 +8,8 @@ https://cognitohq.com/
 
 Today we will work with GSAP https://greensock.com/gsap
 
+Easing visualiser: https://greensock.com/docs/v3/Eases
+
 ## Expand it further!
 
 https://brm.io/matter-js/
