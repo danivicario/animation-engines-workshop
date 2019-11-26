@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Animation engines for JS microlearning</title>
+    <link href="styles/reset.css" rel="stylesheet" />
+    <style>
+      html,
+      body {
+        overflow: hidden;
+      }
+      body {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        background: url(images/logo.png) no-repeat;
+        background-size: auto 100vh;
+        background-position: center top;
+      }
+      div {
+        background: red;
+        /* margin: -1px; */
+        opacity: 0;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
+    <script src="js/staggerEngine.js"></script>
+  </body>
+</html>

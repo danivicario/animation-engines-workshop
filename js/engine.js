@@ -76,22 +76,23 @@ function presentation() {
 setupButtons();
 setupMonsters();
 
-// example 1
+// example 1 - sun yoyo
 // gsap.to(".sun", 1.5, {
 //   scale: 0.8,
 //   yoyo: 1,
 //   repeat: -1
 // });
 
-// example 2
+// example 2 - increase current position
 // let character = generateJustOneMonster();
+
 // tween = gsap.to(character, 2, {
 //   scale: 1,
 //   left: "+=70vw",
-//   ease: "power1.out"
+//   ease: "Linear.none"
 // });
 
-// example 3
+// example 3 - size increase
 // let character = generateJustOneMonster();
 // tween = gsap.to(character, 1, {
 //   scale: 1,
@@ -101,7 +102,7 @@ setupMonsters();
 //   ease: "power1.inOut"
 // });
 
-// example 4
+// example 4 - fall from the sky
 // let character = generateJustOneMonster();
 // let left = `${window.innerWidth / 2 - 100}px`;
 
@@ -126,7 +127,7 @@ setupMonsters();
 // example 5
 // presentation();
 
-// example 6
+// example 6 - collision and bounce
 // let character = generateJustOneMonster();
 
 // var tl = new TimelineMax({ repeat: 0 });
@@ -164,7 +165,7 @@ setupMonsters();
 //   .to(character, 1.5, { bottom: floorPosition + 300, rotation: 100 })
 //   .to(character, 0.5, { bottom: floorPosition, rotation: 0, ease: Bounce.easeOut });
 
-// example 9
+// example 9 - onComplete
 // let character1 = generateJustOneMonster(10);
 // let character2 = generateJustOneMonster(11);
 
@@ -205,14 +206,45 @@ setupMonsters();
 //   });
 
 // example 10
-showObstacle();
+// showObstacle();
 
-let character = generateJustOneMonster(0);
-let t1 = new TimelineMax();
+// let character = generateJustOneMonster(0);
+// let t1 = new TimelineMax();
 
-t1.to(character, 0, { left: 400 })
-  .to(character, 1, { left: 620 })
-  .to(character, 1, { rotate: -40 })
-  .to(character, 1, { bottom: 370, left: 880 })
-  .to(character, 0.5, { bottom: floorPosition, left: 620, rotate: -320, ease: Linear.easeNone })
-  .to(character, 0.75, { left: 200, rotate: -520 });
+// t1.to(character, 0, { left: 400 })
+//   .to(character, 1, { left: 620 })
+//   .to(character, 1, { rotate: -40 })
+//   .to(character, 1, { bottom: 370, left: 880 })
+//   .to(character, 0.5, { bottom: floorPosition, left: 620, rotate: -320, ease: Linear.easeNone })
+//   .to(character, 0.75, { left: 200, rotate: -520 });
+
+// example 11 - showcasing some monsters, shuffle them only third is clickable
+let characters = document.querySelectorAll(".character");
+characters = [...characters].splice(0, 7);
+characters = shuffle([...characters]);
+
+characters.forEach((character, idx) => {
+  character.style.opacity = 0;
+  character.style.display = "block";
+  character.style.left = `${150 * idx}px`;
+  character.style.bottom = `${floorPosition}px`;
+});
+
+tween = gsap.to(".character", {
+  duration: 1,
+  opacity: 1,
+  delay: 0.25,
+  stagger: 0.5,
+  ease: "elastic"
+});
+
+characters[3].onclick = function() {
+  gsap.to(this, {
+    duration: 1,
+    opacity: 1,
+    delay: 0.25,
+    stagger: 0.5,
+    ease: "elastic",
+    bottom: 300
+  });
+};
