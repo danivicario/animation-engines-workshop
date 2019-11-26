@@ -46,6 +46,32 @@ function generateJustOneMonster(requestedMonster) {
   return character;
 }
 
+function presentation() {
+  document.querySelectorAll(".character").forEach((character, idx) => {
+    if (idx > 7) return;
+
+    character.style.display = "block";
+    character.style.left = `${180 * idx}px`;
+    character.style.bottom = `${floorPosition}px`;
+
+    tween = gsap.from(character, {
+      scale: 0.5,
+      opacity: 0,
+      delay: 0.25 * idx
+    });
+
+    tween = gsap.to(character, {
+      duration: 2,
+      scale: 1,
+      opacity: 1,
+      delay: 0.25 * idx,
+      stagger: 1,
+      ease: "elastic",
+      rotation: idx % 2 ? 360 : 0
+    });
+  });
+}
+
 setupButtons();
 setupMonsters();
 
@@ -97,29 +123,7 @@ setupMonsters();
 // );
 
 // example 5
-document.querySelectorAll(".character").forEach((character, idx) => {
-  if (idx > 7) return;
-
-  character.style.display = "block";
-  character.style.left = `${180 * idx}px`;
-  character.style.bottom = `${floorPosition}px`;
-
-  tween = gsap.from(character, {
-    scale: 0.5,
-    opacity: 0,
-    delay: 0.25 * idx
-  });
-
-  tween = gsap.to(character, {
-    duration: 2,
-    scale: 1,
-    opacity: 1,
-    delay: 0.25 * idx,
-    stagger: 1,
-    ease: "elastic",
-    rotation: idx === 5 ? 360 : 0
-  });
-});
+presentation();
 
 // example 6
 // let character = generateJustOneMonster();
