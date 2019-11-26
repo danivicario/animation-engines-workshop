@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
+    <link rel="stylesheet" href="reset.css" />
     <style>
       html,
       body {
@@ -41,11 +42,36 @@
         top: 30px;
         right: 30px;
       }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+      }
+
+      nav button {
+        margin: 5px;
+      }
+
+      button {
+        background: linear-gradient(#333, #ccc);
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+      }
     </style>
-    <link rel="stylesheet" href="reset.css" />
   </head>
 
   <body>
+    <nav>
+      <button id="play">play()</button>
+      <button id="pause">pause()</button>
+      <button id="resume">resume()</button>
+      <button id="reverse">reverse()</button>
+      <button id="restart">restart()</button>
+    </nav>
+
     <div class="sun"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
@@ -56,6 +82,14 @@
 
       let floorPosition = 110;
       let totalMonsters = 40;
+      let tween;
+
+      document.querySelector("#play").onclick = () => tween.play();
+      document.querySelector("#pause").onclick = () => tween.pause();
+      document.querySelector("#resume").onclick = () => tween.resume();
+      document.querySelector("#reverse").onclick = () => tween.reverse();
+      document.querySelector("#restart").onclick = () => tween.restart();
+
       let characters = Array(totalMonsters)
         .fill()
         .map((x, idx) => idx);
@@ -77,35 +111,36 @@
         return character;
       }
 
-      gsap.to(".sun", 1.5, {
-        scale: 0.8,
-        yoyo: 1,
-        repeat: -1
-      });
-
       // example 1
-      // let character = generateJustOne();
-      // gsap.to(character, 1, {
-      //   scale: 1,
-      //   left: "+=30vw",
-      //   ease: "power1.out"
+      // gsap.to(".sun", 1.5, {
+      //   scale: 0.8,
+      //   yoyo: 1,
+      //   repeat: -1
       // });
 
       // example 2
       // let character = generateJustOne();
-      // gsap.to(character, 1, {
+      // tween = gsap.to(character, 2, {
       //   scale: 1,
-      //   left: `+=${window.innerWidth / 2 - 200}`,
-      //   bottom: floorPosition + 40,
-      //   scale: 2,
-      //   ease: "power1.inOut"
+      //   left: "+=70vw",
+      //   ease: "power1.out"
       // });
 
       // example 3
       // let character = generateJustOne();
+      // tween = gsap.to(character, 1, {
+      //   scale: 1,
+      //   left: `+=${window.innerWidth / 2 - 200}`,
+      //   bottom: floorPosition + 20,
+      //   scale: 1.5,
+      //   ease: "power1.inOut"
+      // });
+
+      // example 4
+      // let character = generateJustOne();
       // let left = `${window.innerWidth / 2 - 100}px`;
 
-      // gsap.fromTo(
+      // tween = gsap.fromTo(
       //   character,
       //   {
       //     left: `${left}`,
@@ -123,8 +158,7 @@
       //   }
       // );
 
-      // example 4
-
+      // example 5
       // document.querySelectorAll(".character").forEach((character, idx) => {
       //   if (idx > 10) return;
 
@@ -132,13 +166,13 @@
       //   character.style.left = `${180 * idx}px`;
       //   character.style.bottom = `${floorPosition}px`;
 
-      //   gsap.from(character, {
+      //   tween = gsap.from(character, {
       //     scale: 0.5,
       //     opacity: 0,
       //     delay: 0.25 * idx
       //   });
 
-      //   gsap.to(character, {
+      //   tween = gsap.to(character, {
       //     duration: 2,
       //     scale: 1,
       //     opacity: 1,
@@ -149,23 +183,23 @@
       //   });
       // });
 
-      // example 5
+      // example 6
       // let character = generateJustOne();
 
       // var tl = new TimelineMax({ repeat: 0 });
       // tl.to(character, 0, { bottom: floorPosition + 200 })
       //   .to(character, 1, {
-      //     left: `+=${window.innerWidth}`,
+      //     left: `+=${window.innerWidth - 50}`,
       //     rotation: 360
       //   })
-      //   .to(character, 1, {
+      //   .to(character, 0.5, {
       //     transformOrigin: "left",
       //     rotation: -180,
       //     left: `${window.innerWidth - 50}`,
       //     bottom: floorPosition
       //   });
 
-      // example 6
+      // example 7
       // let character = generateJustOne(21);
 
       // var tl = new TimelineMax({ repeat: 0 });
@@ -179,13 +213,39 @@
       //     left: `-=500`
       //   });
 
-      // example 7
-      let character = generateJustOne();
+      // example 8
+      // let character = generateJustOne();
 
-      var tl = new TimelineMax({ repeat: 0 });
-      tl.to(character, 0, { bottom: floorPosition, left: `${window.innerWidth / 2}` })
-        .to(character, 1.5, { bottom: floorPosition + 300, rotation: 100 })
-        .to(character, 0.5, { bottom: floorPosition, rotation: 0, ease: Bounce.easeOut });
+      // var tl = new TimelineMax();
+      // tl.to(character, 0, { bottom: floorPosition, left: `${window.innerWidth / 2}` })
+      //   .to(character, 1.5, { bottom: floorPosition + 300, rotation: 100 })
+      //   .to(character, 0.5, { bottom: floorPosition, rotation: 0, ease: Bounce.easeOut });
+
+      // example 9
+      // let character1 = generateJustOne();
+      // let character2 = generateJustOne();
+
+      // var tl1 = new TimelineMax();
+      // var tl2 = new TimelineMax();
+      // tl1
+      //   .to(character1, 0, { bottom: floorPosition, left: 0 })
+      //   .to(character1, 1.5, {
+      //     left: `${window.innerWidth / 2 - 25}`
+      //   })
+      //   .to(character1, 0.5, {
+      //     left: `${-200}`,
+      //     rotate: -360
+      //   });
+
+      // tl2
+      //   .to(character2, 0, { bottom: floorPosition, left: `${window.innerWidth - 200}` })
+      //   .to(character2, 1.5, {
+      //     left: `${window.innerWidth / 2 + 25}`
+      //   })
+      //   .to(character2, 0.5, {
+      //     left: `${window.innerWidth}`,
+      //     rotate: 360
+      //   });
     </script>
   </body>
 </html>
