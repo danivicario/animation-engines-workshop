@@ -5,7 +5,7 @@
 html,
 body {
     overflow: hidden;
-    background: url("images/angrybirdsbackground.png") no-repeat;
+    background: url("../images/angrybirdsbackground.png") no-repeat;
     background-size: 100vw 100vh;
     background-position: center;
 }
