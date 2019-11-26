@@ -97,29 +97,29 @@ setupMonsters();
 // );
 
 // example 5
-// document.querySelectorAll(".character").forEach((character, idx) => {
-//   if (idx > 10) return;
+document.querySelectorAll(".character").forEach((character, idx) => {
+  if (idx > 7) return;
 
-//   character.style.display = "block";
-//   character.style.left = `${180 * idx}px`;
-//   character.style.bottom = `${floorPosition}px`;
+  character.style.display = "block";
+  character.style.left = `${180 * idx}px`;
+  character.style.bottom = `${floorPosition}px`;
 
-//   tween = gsap.from(character, {
-//     scale: 0.5,
-//     opacity: 0,
-//     delay: 0.25 * idx
-//   });
+  tween = gsap.from(character, {
+    scale: 0.5,
+    opacity: 0,
+    delay: 0.25 * idx
+  });
 
-//   tween = gsap.to(character, {
-//     duration: 2,
-//     scale: 1,
-//     opacity: 1,
-//     delay: 0.25 * idx,
-//     stagger: 1,
-//     ease: "elastic",
-//     rotation: idx === 5 ? 360 : 0
-//   });
-// });
+  tween = gsap.to(character, {
+    duration: 2,
+    scale: 1,
+    opacity: 1,
+    delay: 0.25 * idx,
+    stagger: 1,
+    ease: "elastic",
+    rotation: idx === 5 ? 360 : 0
+  });
+});
 
 // example 6
 // let character = generateJustOneMonster();
@@ -200,14 +200,14 @@ setupMonsters();
 //   });
 
 // example 10
-showObstacle();
+// showObstacle();
 
-let character = generateJustOneMonster(20);
-let t1 = new TimelineMax();
+// let character = generateJustOneMonster(20);
+// let t1 = new TimelineMax();
 
-t1.to(character, 0, { left: 400 })
-  .to(character, 1, { left: 620 })
-  .to(character, 1, { rotate: -40 })
-  .to(character, 1, { bottom: 370, left: 880 })
-  .to(character, 0.5, { bottom: floorPosition, left: 620, rotate: -320, ease: Linear.easeNone })
-  .to(character, 0.75, { left: 200, rotate: -520 });
+// t1.to(character, 0, { left: 400 })
+//   .to(character, 1, { left: 620 })
+//   .to(character, 1, { rotate: -40 })
+//   .to(character, 1, { bottom: 370, left: 880 })
+//   .to(character, 0.5, { bottom: floorPosition, left: 620, rotate: -320, ease: Linear.easeNone })
+//   .to(character, 0.75, { left: 200, rotate: -520 });
