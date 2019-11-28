@@ -4,48 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <style>
-      .test {
-        background: red;
-        border-radius: 10px;
-        height: 100px;
-        width: 100px;
-      }
-
-      body {
-        display: flex;
-        flex-direction: row;
-      }
-    </style>
+    <title>Animation engines for JS microlearning</title>
+    <link href="styles/reset.css" rel="stylesheet" />
+    <link href="styles/style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet" />
   </head>
-  <body>
-    <!-- <h1 id="logo">
-      <img src="images/logo.png" alt="" />
-    </h1> -->
-    <div class="test"></div>
-    <div class="test"></div>
-    <div class="test"></div>
-    <div class="test"></div>
-    <div class="test"></div>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
-    <script>
-      const randomFloat = (min, max) => Math.random() * (max - min) + min;
-      const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-      const shuffle = array => array.sort(() => Math.random() - 0.5);
 
-      gsap.to(".test", {
-        duration: 3,
-        rotation: 90,
-        ease: "elastic",
-        force3D: true,
-        yoyo: true,
-        repeat: -1,
-        delay: 5,
-        stagger: 0.2,
-        backgroundColor: () =>
-          `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}, 1)`
-      });
-    </script>
+  <body>
+    <nav>
+      <button id="play">play</button>
+      <button id="pause">pause</button>
+      <button id="resume">resume</button>
+      <button id="reverse">reverse</button>
+      <button id="restart">restart</button>
+    </nav>
+
+    <div class="sun"></div>
+    <div class="speech"></div>
+    <div class="obstacle1"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.0.1/dist/gsap.min.js"></script>
+    <script src="js/engine.js"></script>
   </body>
 </html>
