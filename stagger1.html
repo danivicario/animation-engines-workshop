@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  </head>
+  <body>
+    <link
+      href="//fonts.googleapis.com/css?family=Signika+Negative:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <ul class="nav">
+      <li class="btn">new game</li>
+      <li class="btn">options</li>
+      <li class="btn">credits</li>
+    </ul>
+
+    <link rel="stylesheet" href="reset.css" />
+
+    <style>
+      body,
+      html {
+        font-family: Signika Negative, sans-serif;
+        background: #111;
+        color: #efefef;
+        height: 100%;
+      }
+      .btn {
+        border: none;
+        text-align: center;
+        cursor: pointer;
+        padding: 25px 80px;
+        margin: 25px 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        outline: none;
+        position: relative;
+        background-color: rgb(38, 38, 38);
+        border: solid 1px transparent;
+        border-radius: 10px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .nav {
+        position: relative;
+        width: 350px;
+        margin: auto;
+        overflow: hidden;
+        background-color: #1d1d1d;
+        height: 90%;
+      }
+
+      .instructions {
+        text-align: center;
+        margin-top: 10px;
+      }
+    </style>
+    <script>
+      TweenMax.staggerFrom(
+        ".btn",
+        2,
+        { scale: 0.5, opacity: 0, delay: 0.5, ease: Elastic.easeOut, force3D: true },
+        0.2
+      );
+
+      document.querySelector(".nav").onclick = function() {
+        TweenMax.staggerTo(".btn", 0.5, { opacity: 0, y: -100, ease: Back.easeIn }, 0.1);
+      };
+    </script>
+  </body>
+</html>

@@ -50,7 +50,7 @@ function generateJustOneMonster(requestedMonster) {
 setupButtons();
 setupMonsters();
 
-example5();
+example3();
 
 // example 1 - sun yoyo
 // example1();

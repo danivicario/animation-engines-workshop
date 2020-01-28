@@ -21,13 +21,32 @@ function setupBoxes() {
 
 setupBoxes();
 
-gsap.to("div", 1, {
-  opacity: 0,
-  stagger: {
-    amount: 1.5,
-    grid: "auto",
-    from: "center"
+gsap.fromTo(
+  "div",
+  5,
+  {
+    // borderRadius: 10,
+    backgroundColor: () => `white`
+  },
+  {
+    stagger: {
+      amount: 2.5,
+      // grid: "auto",
+      from: "right"
+    },
+    opacity: 0
+    // borderRadius: 50
+    // backgroundColor: () =>
+    //   `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}, 1)`
   }
-  //   borderRadius: 50,
-  // backgroundColor: () => `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}, 1)`
-});
+);
+
+// gsap.to("div", 1, {
+//   opacity: 0,
+//   borderRadius: 50,
+// stagger: {
+//   amount: 1.5,
+//   grid: "auto",
+//   from: "left"
+// }
+// });
