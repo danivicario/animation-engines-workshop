@@ -23,21 +23,20 @@ setupBoxes();
 
 gsap.fromTo(
   "div",
-  5,
+  3,
   {
-    // borderRadius: 10,
-    backgroundColor: () => `white`
+    // borderRadius: 10
+    // backgroundColor: () =>
+    //   `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}, 1)`
   },
   {
     stagger: {
       amount: 2.5,
-      // grid: "auto",
-      from: "right"
+      grid: "auto",
+      from: "left"
     },
-    opacity: 0
-    // borderRadius: 50
-    // backgroundColor: () =>
-    //   `rgba(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)}, 1)`
+    opacity: 0,
+    borderRadius: 50
   }
 );
 

@@ -50,14 +50,14 @@ function generateJustOneMonster(requestedMonster) {
 setupButtons();
 setupMonsters();
 
-example3();
+// example1();
 
 // example 1 - sun yoyo
 // example1();
 
 function example1() {
   gsap.to(".sun", 1.5, {
-    scale: 0.8,
+    scale: 1.8,
     yoyo: 1,
     repeat: -1
   });
@@ -70,7 +70,8 @@ function example2() {
   let character = generateJustOneMonster();
 
   tween = gsap.to(character, 2, {
-    scale: 1,
+    scale: 4,
+    top: "-=20vh",
     left: "+=70vw",
     ease: "Linear.none"
   });
@@ -81,12 +82,12 @@ function example2() {
 
 function example3() {
   let character = generateJustOneMonster();
-  tween = gsap.to(character, 1, {
+  tween = gsap.to(character, 5, {
     scale: 1,
     left: `+=${window.innerWidth / 2 - 200}`,
     bottom: floorPosition + 20,
     scale: 1.5,
-    ease: "power1.inOut"
+    ease: "Bounce.easeOut"
   });
 }
 
@@ -129,15 +130,15 @@ function example5() {
     tween = gsap.from(character, {
       scale: 0.5,
       opacity: 0,
-      delay: 0.25 * idx
+      delay: 2.25 * idx
     });
 
     tween = gsap.to(character, {
       duration: 2,
       scale: 1,
       opacity: 1,
-      delay: 0.25 * idx,
-      stagger: 1,
+      delay: 2.25 * idx,
+      stagger: 2,
       ease: "elastic",
       rotation: idx % 2 ? 360 : 0
     });
@@ -189,7 +190,7 @@ function example8() {
   let character = generateJustOneMonster();
   var tl = new TimelineMax();
   tl.to(character, 0, { bottom: floorPosition, left: `${window.innerWidth / 2}` })
-    .to(character, 1.5, { bottom: floorPosition + 300, rotation: 100 })
+    .to(character, 1.5, { bottom: floorPosition + 300, rotation: 360 * 2 })
     .to(character, 0.5, { bottom: floorPosition, rotation: 0, ease: Bounce.easeOut });
 }
 
@@ -254,7 +255,7 @@ function example10() {
 }
 
 // example 11 - showcasing some monsters, shuffle them only third is clickable
-// example11();
+example11();
 
 function example11() {
   let characters = document.querySelectorAll(".character");
