@@ -1,3 +1,5 @@
+// comment and uncomment the examples to try them out
+
 const randomFloat = (min, max) => Math.random() * (max - min) + min;
 const randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 const shuffle = array => array.sort(() => Math.random() - 0.5);
@@ -50,10 +52,8 @@ function generateJustOneMonster(requestedMonster) {
 setupButtons();
 setupMonsters();
 
-// example1();
-
 // example 1 - sun yoyo
-// example1();
+example1();
 
 function example1() {
   gsap.to(".sun", 1.5, {
@@ -255,7 +255,7 @@ function example10() {
 }
 
 // example 11 - showcasing some monsters, shuffle them only third is clickable
-example11();
+// example11();
 
 function example11() {
   let characters = document.querySelectorAll(".character");
